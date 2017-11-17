@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 ## Global variables
@@ -33,9 +32,9 @@ read -p "Do you want to continue? (y/N)? " choice
 
 ## Installing the required programs
 echo -e '\nInstalling the required programs...'
-apt-get update
+apt-get update >/dev/null
 apt-get --assume-yes install git python python-pip jq socat >/dev/null
-pip install pyudev zeroconf netifaces
+pip install pyudev zeroconf netifaces >/dev/null
 
 
 ## Cloning the github repository
@@ -53,8 +52,8 @@ fi
 
 ## Creating the <serial2tcp-gateway> username
 echo -e '\nCreating the serial2tcp-gateway username...'
-useradd -r serial2tcp-gateway
-usermod -a -G dialout serial2tcp-gateway
+useradd -r $name
+usermod -a -G dialout $name
 
 
 ## Moving the program files to the installation directory
@@ -67,7 +66,7 @@ chown -R serial2tcp-gateway /var/log/$name
 
 ## Adding the start script file
 echo -e '\nAdding the start script file...'
-cp -rf systemd/* /etc/systemd/system/*
+cp -rf /tmp/$name/systemd/$name.service /etc/systemd/system/$name.service
 systemctl daemon-reload
 systemctl enable $name.service
 
@@ -86,6 +85,7 @@ if [[ ! -z "${allowed_ip// }" ]]; then
    jq --arg _allowed_ip $allowed_ip '. | .ALLOWED_IP=$_allowed_ip' configuration.json > tmp.$$.json && mv tmp.$$.json configuration.json
 fi
 rm -rf tmp.*.json
+chown $name configuration.json
 
 
 ## Removing the git repository
