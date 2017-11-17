@@ -33,8 +33,8 @@ read -p "Do you want to continue? (y/N)? " choice
 ## Installing the required programs
 echo -e '\nInstalling the required programs...'
 apt-get update >/dev/null
-apt-get --assume-yes install git python python-pip jq socat >/dev/null
-pip install pyudev pyserial zeroconf netifaces >/dev/null
+apt-get --assume-yes install git python python-dev python-pip jq socat >/dev/null
+pip install enum34 pyudev pyserial zeroconf netifaces >/dev/null
 
 
 ## Cloning the github repository
