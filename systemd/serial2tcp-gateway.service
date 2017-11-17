@@ -1,0 +1,15 @@
+[Unit]
+Description=Serial2TCP Gateway
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=serial2tcp-gateway
+Restart=always
+RestartSec=5
+
+ExecStart=/usr/bin/python /opt/serial2tcp-gateway/main.py
+
+[Install]
+WantedBy=multi-user.target

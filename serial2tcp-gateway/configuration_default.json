@@ -1,0 +1,6 @@
+{
+  "FRIENDLY_NAME": "test",
+  "INTERFACE": "eth0",
+  "ALLOWED_IP": "",
+  "DEBUG": false
+}
