@@ -1,0 +1,5 @@
+enum34
+pyudev
+pyserial
+zeroconf==0.19.1
+netifaces
