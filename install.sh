@@ -34,7 +34,6 @@ read -p "Do you want to continue? (y/N)? " choice
 echo -e '\nInstalling the required programs...'
 apt-get update >/dev/null
 apt-get --assume-yes install git python python-dev python-pip jq socat >/dev/null
-pip install enum34 pyudev pyserial zeroconf netifaces >/dev/null
 
 
 ## Cloning the github repository
@@ -48,6 +47,11 @@ else
 	git clone https://github.com/$repository_owner/$name.git
 	cd $name
 fi
+
+
+## Installing the required python libraries
+echo -e '\nInstalling the required python libraries...'
+pip install -r requirements.txt > /dev/null
 
 
 ## Creating the <serial2tcp-gateway> username
