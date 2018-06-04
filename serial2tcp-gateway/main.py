@@ -10,7 +10,7 @@ from socat2tcp import Socat2TCP
 from mdns_advertiser import MDNSAdvertiser
 from device_definitions import devices as registered_devices
 
-logging.basicConfig(filename="/var/log/serial2tcp-gateway/serial2tcp-gateway.log", format='%(asctime)s %(levelname)-8s - %(message)s', level=logging.INFO)
+logging.basicConfig(format='%(asctime)s %(levelname)-8s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 threads = {}
