@@ -33,7 +33,7 @@ read -p "Do you want to continue? (y/N)? " choice
 ## Installing the required programs
 echo -e '\nInstalling the required programs...'
 apt-get update >/dev/null
-apt-get --assume-yes install git python python-dev python-pip jq socat >/dev/null
+apt-get --assume-yes install git python3 python3-dev python3-pip jq socat >/dev/null
 
 
 ## Cloning the github repository
@@ -51,7 +51,7 @@ fi
 
 ## Installing the required python libraries
 echo -e '\nInstalling the required python libraries...'
-pip install -r requirements.txt > /dev/null
+pip3 install -r requirements.txt > /dev/null
 
 
 ## Creating the <serial2tcp-gateway> username

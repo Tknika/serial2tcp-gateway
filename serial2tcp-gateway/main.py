@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import pyudev
 import signal
@@ -55,7 +55,7 @@ def load_configuration(config_file=None):
 
 
 def signal_handler(signal, frame):
-    for device in threads.itervalues():
+    for device in threads.values():
         for thread in device:
             thread.stop()
     logger.info("Serial2TCP gateway program stopped")

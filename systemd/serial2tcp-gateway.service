@@ -9,7 +9,7 @@ User=serial2tcp-gateway
 Restart=always
 RestartSec=5
 
-ExecStart=/usr/bin/python /opt/serial2tcp-gateway/main.py
+ExecStart=/opt/serial2tcp-gateway/main.py
 
 [Install]
 WantedBy=multi-user.target

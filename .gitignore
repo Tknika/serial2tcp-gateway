@@ -1,0 +1,4 @@
+serial2tcp-gateway/configuration.json
+__pycache__
+.vscode
+*.pyc
